@@ -201,14 +201,14 @@
 
             document.querySelector(".staff-nav.left").onclick = () => {
                 if (index > 0) {
-                index = index - 4;
+                index--;
                 updateScroll();
             }
         };
 
             document.querySelector(".staff-nav.right").onclick = () => {
                 if (index < cards.length - visibleCards) {
-                index = index + 4;
+                index++;
                 updateScroll();
             }
         };
