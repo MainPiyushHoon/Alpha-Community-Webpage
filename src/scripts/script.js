@@ -121,6 +121,86 @@
             }
         });
         
+        const SERVERS_FILE = 'src/data/servers.json';
+
+        function buildServerCard(server) {
+            const statusClass = server.offline ? 'idle' : 'online';
+            return `
+                <div class="server-card">
+                    <div class="server-status ${statusClass}"></div>
+                    <div class="server-icon">
+                        <i class="${server.icon}"></i>
+                    </div>
+                    <h3>${server.name}</h3>
+                    <p>${server.description}</p>
+                    <div class="server-info">
+                        <span><i class="fas fa-user"></i>IP ${server.ip} PORT ${server.port}</span>
+                        <span><i class="fas fa-map"></i>${server.type}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function loadServers() {
+            const serversGrid = document.getElementById('serversGrid');
+            if (!serversGrid) return;
+
+            try {
+                const response = await fetch(SERVERS_FILE + '?t=' + Date.now());
+                if (!response.ok) return;
+                const data = await response.json();
+                serversGrid.innerHTML = (data.servers || []).map(buildServerCard).join('');
+            } catch (error) {
+                console.error('Failed to load servers data', error);
+            }
+        }
+
+        const STAFF_FILE = 'src/data/staff.json';
+
+        function buildStaffRoleCard(role) {
+            const members = role.members || [];
+            return `
+                <article class="staff-role-card">
+                    <img src="${role.roleImage}" alt="${role.role}" class="staff-role-image" />
+                    <div class="staff-role-overlay"></div>
+                    <div class="staff-role-content">
+                        <div class="staff-role-header">
+                            <h3>${role.role}</h3>
+                            <span>${members.length} Members</span>
+                        </div>
+                        <p class="staff-role-description">${role.roleDescription}</p>
+                    </div>
+                    <div class="staff-role-members">
+                        ${members.map(member => `
+                            <div class="staff-member-card" style="background-image: url('${member.profileImage}')">
+                                <div class="staff-member-overlay"></div>
+                                <div class="staff-member-content">
+                                    <h4>${member.name}</h4>
+                                    <p>${member.description}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </article>
+            `;
+        }
+
+        async function loadStaff() {
+            const staffGrid = document.getElementById('staffGrid');
+            if (!staffGrid) return;
+
+            try {
+                const response = await fetch(STAFF_FILE + '?t=' + Date.now());
+                if (!response.ok) return;
+                const data = await response.json();
+                staffGrid.innerHTML = (data.roles || [])
+                    .map(role => buildStaffRoleCard(role))
+                    .join('');
+            } catch (error) {
+                console.error('Failed to load staff data', error);
+            }
+        }
+
         // Auto-refresh stats every 60 seconds
         function autoRefresh() {
             setInterval(loadStats, 60000);
@@ -130,6 +210,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             loadStats();
             autoRefresh();
+            loadServers();
+            loadStaff();
             
             // Update time every minute
             setInterval(() => {
