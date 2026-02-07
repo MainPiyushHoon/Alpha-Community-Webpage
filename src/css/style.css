@@ -455,9 +455,17 @@ h1, h2, h3, h4 {
     gap: 30px;
 }
 
+.staff-cards {
+    height: 500px;
+    display: flex;
+    gap: 30px;
+}
+
 .staff-card {
     background: rgba(18, 24, 38, 0.85);
     padding: 25px;
+    width: 25%;
+    height: 100%;
     border-radius: var(--border-radius);
     text-align: center;
     border: 1px solid rgba(139, 147, 176, 0.1);
