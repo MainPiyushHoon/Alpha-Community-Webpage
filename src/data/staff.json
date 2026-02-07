@@ -6,12 +6,12 @@
       "roleDescription": "Leads the entire community vision and final decisions for all major events and server operations.",
       "members": [
         {
-          "name": "ALPHA",
+          "name": "Alpha",
           "profileImage": "src/images/Alpha.jpg",
           "description": "Leads the entire community vision and final decisions for all major events and server operations."
         },
         {
-          "name": "BABUR",
+          "name": "Babur",
           "profileImage": "src/images/Babur.jpg",
           "description": "Oversees strategic partnerships and seasonal planning for the community."
         }
@@ -24,12 +24,12 @@
       "roleDescription": "Built the community foundation, shaped culture, and mentors core leadership members.",
       "members": [
         {
-          "name": "REEN",
+          "name": "Reen",
           "profileImage": "src/images/Reen.jpg",
           "description": "Built the community foundation, shaped culture, and mentors core leadership members."
         },
         {
-          "name": "ABIN",
+          "name": "Abin",
           "profileImage": "src/images/Abin.jpg",
           "description": "Guides long-term vision, legacy programs, and special community initiatives."
         }
@@ -68,7 +68,7 @@
           "description": "Manages user feedback, mediates issues, and coordinates follow-ups."
         },
         {
-          "name": "JIK-O",
+          "name": "JiKo",
           "profileImage": "src/images/Jiko.jpg",
           "description": "Manages user feedback, mediates issues, and coordinates follow-ups."
         }
