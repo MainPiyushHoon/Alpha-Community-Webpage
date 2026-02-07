@@ -157,49 +157,75 @@
 
         const STAFF_FILE = 'src/data/staff.json';
 
-        function buildStaffRoleCard(role) {
-            const members = role.members || [];
-            return `
-                <article class="staff-role-card">
-                    <img src="${role.roleImage}" alt="${role.role}" class="staff-role-image" />
-                    <div class="staff-role-overlay"></div>
-                    <div class="staff-role-content">
-                        <div class="staff-role-header">
-                            <h3>${role.role}</h3>
-                            <span>${members.length} Members</span>
-                        </div>
-                        <p class="staff-role-description">${role.roleDescription}</p>
-                    </div>
-                    <div class="staff-role-members">
-                        ${members.map(member => `
-                            <div class="staff-member-card" style="background-image: url('${member.profileImage}')">
-                                <div class="staff-member-overlay"></div>
-                                <div class="staff-member-content">
-                                    <h4>${member.name}</h4>
-                                    <p>${member.description}</p>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </article>
-            `;
+        function renderStaffCarousel(data, containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) {
+                console.error("Container not found");
+                return;
+            }
+
+    // Flatten roles → members while preserving role order
+            const allMembers = data.roles.flatMap(role =>
+                role.members.map(member => ({
+                    ...member,
+                role: role.role
+                }))
+            );
+
+    // Insert ONLY member cards (no wrapper duplication)
+            container.innerHTML = allMembers.map(member => `
+                <div class="staff-member-card">
+                    <img src="${member.profileImage}" alt="${member.name}">
+                <div class="staff-member-content">
+                    <h4>${member.name}</h4>
+                    <small>${member.role}</small>
+                    <p>${member.description}</p>
+                </div>
+            </div>
+        `).join("");
+
+    // ===== Carousel Logic =====
+            const scrollContainer = container;
+            const cards = container.querySelectorAll(".staff-member-card");
+
+            if (!cards.length) return;
+
+            let index = 0;
+            const visibleCards = 4;
+
+            function updateScroll() {
+            const cardWidth = cards[0].offsetWidth + 20;
+            scrollContainer.style.transform =
+                `translateX(-${index * cardWidth}px)`;
         }
+
+            document.querySelector(".staff-nav.left").onclick = () => {
+                if (index > 0) {
+                index--;
+                updateScroll();
+            }
+        };
+
+            document.querySelector(".staff-nav.right").onclick = () => {
+                if (index < cards.length - visibleCards) {
+                index++;
+                updateScroll();
+            }
+        };
+    }
+
+        // Load automatically after page load
+        document.addEventListener("DOMContentLoaded", loadStaff);
 
         async function loadStaff() {
-            const staffGrid = document.getElementById('staffGrid');
-            if (!staffGrid) return;
-
-            try {
-                const response = await fetch(STAFF_FILE + '?t=' + Date.now());
-                if (!response.ok) return;
-                const data = await response.json();
-                staffGrid.innerHTML = (data.roles || [])
-                    .map(role => buildStaffRoleCard(role))
-                    .join('');
-            } catch (error) {
-                console.error('Failed to load staff data', error);
-            }
-        }
+    try {
+        const response = await fetch(STAFF_FILE);
+        const data = await response.json();
+        renderStaffCarousel(data, "staffGrid");
+    } catch (err) {
+        console.error("Failed to load staff:", err);
+    }
+}
 
         // Auto-refresh stats every 60 seconds
         function autoRefresh() {

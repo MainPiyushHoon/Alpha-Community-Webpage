@@ -465,7 +465,7 @@ h1, h2, h3, h4 {
     background: rgba(18, 24, 38, 0.85);
     padding: 25px;
     width: 25%;
-    height: 100%;
+    height: 300px;
     border-radius: var(--border-radius);
     text-align: center;
     border: 1px solid rgba(139, 147, 176, 0.1);
@@ -473,9 +473,41 @@ h1, h2, h3, h4 {
     backdrop-filter: blur(10px);
 }
 
-.staff-card:hover {
-    transform: translateY(-5px);
+.staff-carousel {
+    overflow: hidden;
+    width: 100%;
 }
+
+.staff-members-container {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.4s ease;
+}
+
+.staff-member-card {
+    flex: 0 0 calc(25% - 20px);
+    min-width: 250px;
+    background: rgba(18, 24, 38, 0.85);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.staff-member-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.staff-nav {
+    cursor: pointer;
+    font-size: 24px;
+    background: none;
+    border: none;
+}
+
 
 .staff-avatar {
     width: 80px;
@@ -532,12 +564,8 @@ h1, h2, h3, h4 {
 
 
 .staff-role-grid {
-    display: flex;
-    gap: 0;
-    align-items: stretch;
-    border-radius: var(--border-radius);
+    width: 100%;
     overflow: hidden;
-    border: 1px solid rgba(139, 147, 176, 0.25);
     position: relative;
 }
 
@@ -590,27 +618,6 @@ h1, h2, h3, h4 {
     line-height: 1.5;
 }
 
-.staff-role-grid:hover .staff-role-card {
-    opacity: 0;
-    transform: scale(0.98);
-    pointer-events: none;
-}
-
-.staff-role-grid:hover .staff-role-card:hover {
-    flex: 3 1 0;
-    opacity: 1;
-    transform: translateY(-6px) scale(1);
-    box-shadow: var(--shadow-lg);
-    pointer-events: auto;
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-}
-
-.staff-role-card:hover .staff-role-content {
-    opacity: 0;
-}
-
 .staff-role-header {
     display: flex;
     flex-direction: column;
@@ -628,40 +635,6 @@ h1, h2, h3, h4 {
     color: var(--gray);
     text-transform: uppercase;
     letter-spacing: 1px;
-}
-
-.staff-role-members {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 16px;
-    padding: 18px;
-    opacity: 0;
-    transform: scale(0.98);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    z-index: 2;
-    background: rgba(10, 14, 23, 0.6);
-    backdrop-filter: blur(6px);
-    align-items: stretch;
-}
-
-.staff-role-card:hover .staff-role-members {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.staff-member-card {
-    position: relative;
-    border-radius: var(--border-radius-sm);
-    overflow: hidden;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: flex-end;
-    flex: 1 1 0;
-    min-width: 0;
 }
 
 .staff-member-overlay {
@@ -702,16 +675,16 @@ h1, h2, h3, h4 {
         border-bottom: none;
     }
 
-    .staff-role-grid:hover .staff-role-card {
+    /* .staff-role-grid:hover .staff-role-card {
         opacity: 1;
         transform: none;
         pointer-events: auto;
-    }
+    } */
 
-    .staff-role-grid:hover .staff-role-card:hover {
+    /* .staff-role-grid:hover .staff-role-card:hover {
         flex: 1 1 auto;
         box-shadow: none;
-    }
+    } */
 }
 
 @media (max-width: 700px) {
