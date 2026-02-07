@@ -1,0 +1,100 @@
+{
+  "roles": [
+    {
+      "role": "Owner",
+      "roleImage": "src/images/ALPHA.webp",
+      "roleDescription": "Leads the entire community vision and final decisions for all major events and server operations.",
+      "members": [
+        {
+          "name": "ALPHA",
+          "profileImage": "src/images/Alpha.jpg",
+          "description": "Leads the entire community vision and final decisions for all major events and server operations."
+        },
+        {
+          "name": "BABUR",
+          "profileImage": "src/images/Babur.jpg",
+          "description": "Oversees strategic partnerships and seasonal planning for the community."
+        }
+        
+      ]
+    },
+    {
+      "role": "Co-Owner",
+      "roleImage": "src/images/bombsquad.webp",
+      "roleDescription": "Built the community foundation, shaped culture, and mentors core leadership members.",
+      "members": [
+        {
+          "name": "REEN",
+          "profileImage": "src/images/Reen.jpg",
+          "description": "Built the community foundation, shaped culture, and mentors core leadership members."
+        },
+        {
+          "name": "ABIN",
+          "profileImage": "src/images/Abin.jpg",
+          "description": "Guides long-term vision, legacy programs, and special community initiatives."
+        }
+      ]
+    },
+    {
+      "role": "Manager",
+      "roleImage": "src/images/discord.webp",
+      "roleDescription": "Handles escalations, tournament supervision, and advanced moderation workflows.",
+      "members": [
+        {
+          "name": "Piyush",
+          "profileImage": "src/images/Piyush.jpg",
+          "description": "Handles escalations, tournament supervision, and advanced moderation workflows."
+        }
+      ]
+    },
+    {
+      "role": "Senior staff",
+      "roleImage": "src/images/GTAV.webp",
+      "roleDescription": "Reviews complaints, resolves disputes fairly, and ensures a respectful space for everyone.",
+      "members": [
+        {
+          "name": "DefenderOP",
+          "profileImage": "src/images/Defender.jpg",
+          "description": "Reviews complaints, resolves disputes fairly, and ensures a respectful space for everyone."
+        },
+        {
+          "name": "Noobholic",
+          "profileImage": "src/images/Nooboholic.jpg",
+          "description": "Manages user feedback, mediates issues, and coordinates follow-ups."
+        },
+        {
+          "name": "Pom Pom",
+          "profileImage": "src/images/PomPom.jpg",
+          "description": "Manages user feedback, mediates issues, and coordinates follow-ups."
+        },
+        {
+          "name": "JIK-O",
+          "profileImage": "src/images/Jiko.jpg",
+          "description": "Manages user feedback, mediates issues, and coordinates follow-ups."
+        }
+      ]
+    },
+     {
+      "role": "Complaint Crew",
+      "roleImage": "src/images/GTAV.webp",
+      "roleDescription": "Reviews complaints, resolves disputes fairly, and ensures a respectful space for everyone.",
+      "members": [
+        {
+          "name": "Sanchit",
+          "profileImage": "src/images/Sanchit.jpg",
+          "description": "Reviews complaints, resolves disputes fairly, and ensures a respectful space for everyone."
+        },
+        {
+          "name": "Karamveer",
+          "profileImage": "src/images/Karmveer.jpg",
+          "description": "Manages user feedback, mediates issues, and coordinates follow-ups."
+        },
+        {
+          "name": "Nakshatra",
+          "profileImage": "src/images/Nakshatra.jpg",
+          "description": "Manages user feedback, mediates issues, and coordinates follow-ups."
+        }
+      ]
+    }
+  ]
+}
