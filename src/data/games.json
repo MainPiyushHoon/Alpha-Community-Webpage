@@ -35,6 +35,11 @@
             "image":"peak",
             "description":"Description Goes here",
             "tags": ["Co-OP", "Trolling", "FPS", "Fun"]
-        }
+        },
+        {
+            "name":"Phasmophobia",
+            "image":"phasmo",
+            "description":"Description Goes here",
+            "tags": ["Co-OP", "Horror", "Puzzle"]}
     ]
 }
