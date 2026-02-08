@@ -27,6 +27,7 @@
             if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
             return `${Math.floor(seconds / 86400)}d ago`;
         }
+
         
         // Update Discord stats
         function updateDiscordStats(data) {
@@ -589,3 +590,61 @@
 
             loadTournamentData();
         });
+
+        const GAME_FILE = 'src/data/games.json';
+
+        async function LoadGames(){
+            try {
+                const res = await fetch(GAME_FILE);
+                const data = await res.json();
+                renderGames(data.games);
+            } catch (err) {
+                console.error("Can check this brother?", err);
+            }
+        }
+
+        function renderGames(games) {
+            const container = document.getElementById('gamingGrid');
+            if (!container) return;
+
+            container.innerHTML = games.map(game => `
+                <div class="gaming-card">
+                    <div class = "gaming-icon ${game.image}"></div>
+                    <h3>${game.name}</h3>
+                    <p>${game.description}</p>
+                    <div class="gaming-tags">
+                        ${game.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>   
+                </div>
+            `).join('');
+
+            const scrollContainer = container;
+            const cards = container.querySelectorAll(".gaming-card");
+            if (!cards.length) return;
+
+            let index = 0;
+            const visibleCards = 4;
+
+            function updateScroll() {
+            const cardWidth = cards[0].offsetWidth + 20;
+            scrollContainer.style.transform =
+                `translateX(-${index * cardWidth}px)`;
+        }
+
+            document.querySelector(".game-nav.left").onclick = () => {
+                if (index > 0) {
+                index--;
+                updateScroll();
+            }
+        };
+
+            document.querySelector(".game-nav.right").onclick = () => {
+                if (index < cards.length - visibleCards) {
+                index++;
+                updateScroll();
+            }
+        };
+
+    }   
+
+        document.addEventListener('DOMContentLoaded', LoadGames);

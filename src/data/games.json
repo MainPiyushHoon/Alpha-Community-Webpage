@@ -1,0 +1,40 @@
+{
+    "games":[
+        {
+            "name":"Bombsquad",
+            "image":"bombsquad",
+            "description": "Holds a special place in our community with active players.",
+            "tags": ["Custom Matches", "Active Players", "Beginner Friendly"]
+        },
+        {
+            "name":"GTA V",
+            "image":"gtav",
+            "description":"Description Goes here",
+            "tags": ["Missions", "Free Roam", "Fun"]
+        },
+        {
+            "name":"Valorant",
+            "image":"valorant",
+            "description":"Description Goes here",
+            "tags": ["Ranked", "Casual", "Non-toxic (sometimes)"]
+        },
+        {
+            "name":"Clash of Clans",
+            "image":"coc",
+            "description":"Description Goes here",
+            "tags": ["Clan Wars", "Casual", "Strategy"]
+        },
+        {
+            "name":"Minecraft",
+            "image":"minecraft",
+            "description":"Description Goes here",
+            "tags": ["Survival Mode", "Multiplayer", "Building"]
+        },
+        {
+            "name":"Peak",
+            "image":"peak",
+            "description":"Description Goes here",
+            "tags": ["Co-OP", "Trolling", "FPS", "Fun"]
+        }
+    ]
+}
