@@ -1069,6 +1069,11 @@ h1, h2, h3, h4 {
     background-size: cover;
 }
 
+.gaming-icon.RV {
+    background-image: url("../images/RV.webp");
+    background-size: cover;
+}
+
 .gaming-card h3 {
     font-size: 1.4rem;
     margin-bottom: 15px;

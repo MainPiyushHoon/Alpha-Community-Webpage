@@ -40,6 +40,13 @@
             "name":"Phasmophobia",
             "image":"phasmo",
             "description":"Description Goes here",
-            "tags": ["Co-OP", "Horror", "Puzzle"]}
+            "tags": ["Co-OP", "Horror", "Puzzle"]
+        },
+        {
+            "name": "RV There Yet?",
+            "image": "RV",
+            "description": "Description Goes here",
+            "tags": ["Co-OP", "Racing", "Fun"]
+        }
     ]
 }
